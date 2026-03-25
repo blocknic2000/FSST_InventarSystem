@@ -11,11 +11,34 @@ class GUI(ctk.CTk):
         self.main_frame = ctk.CTkFrame(self) #Rahmen
         self.main_frame.place(relx = 0.5, rely = 0.5, anchor = "center", relwidth = 0.35, relheight = 0.95) #Rahmen platzieren
 
+        #Grid für responsive Design Unterteilung
+        self.main_frame.rowconfigure(0, weight = 0)
+        self.main_frame.rowconfigure(1, weight = 1)
+        self.main_frame.rowconfigure(2, weight = 0)
+        self.main_frame.columnconfigure(0, weight = 1)
+
         self.label = ctk.CTkLabel(self.main_frame, text = "Inventarsystem", font = ("Arial", 30)) #Überschrift
-        self.label.pack(pady = 20) #Überschrift platzieren
+        self.label.grid(row = 0, column = 0, padx = 10, pady = (15, 8), sticky = "n")
 
         self.scroll = ctk.CTkScrollableFrame(self.main_frame) #Scrollframe
-        self.scroll.pack(fill = "both", expand = True, padx = 20, pady = 15) #Scrollframe platzieren
+        self.scroll.grid(row = 1, column = 0, padx = 10, pady = 8, sticky = "nsew")
+
+        button_frame = ctk.CTkFrame(self.main_frame, fg_color="transparent")
+        button_frame.grid(row = 2, column = 0, pady = (8, 15), sticky = "ew")
+        button_frame.columnconfigure((0,1,2), weight = 1)
+
+        self.button1 = ctk.CTkButton(button_frame, text = "Ausleihen")
+        self.button1.grid(row = 0, column = 0, padx = 4, sticky = 0 "ew")
+        self.button2 = ctk.CTkButton(button_frame, text = "Zurückgeben")
+        self.button2.grid(row = 0, column = 1, padx = 4, sticky = "ew")
+        self.button3 = ctk.CTkButton(button_frame, text = "Barcode scannen")
+        self.button3.grid(row = 0, column = 2, padx = 4, sticky = "ew")
+
+        self.main_frame.bind("<Configure>", self._on_main_frame_resize)
+
+    def _on_main_frame_resize(self, event):
+        font_size = max(18, min(40, int(event.width / 10)))
+        self.label.configure(font = ("Arial", font_size))
 
 #Programm starten
 if __name__ == "__main__":
