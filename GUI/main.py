@@ -219,7 +219,7 @@ class App(ctk.CTk):
             self.after(3000, lambda: [erfolgreich.destroy(), self.haupt_fenster()]) #nach 3s schließen und ins Hauptfenster zurück
 
         #Abstand
-        self.grid_rowconfigure(1, weight = 1) #Row 1 wachst mit
+        self.grid_rowconfigure(1, weight = 1) #Zeile 1 wachst mit
 
         #Buttons
         btn_frame = ctk.CTkFrame(self) #Button-Frame
@@ -243,9 +243,9 @@ class App(ctk.CTk):
     def load_img(self, name, big = False):
         size = (250, 250) if big else (150, 150) #Größe je nach Fenster
         try:
-            img = Image.open(name + ".png") #versuchen zu laden
+            img = Image.open("GUI/" + name + ".png") #versuchen zu laden
         except:
-            img = Image.open("Platzhalter.png")
+            img = Image.open("GUI/Platzhalter.png")
         return ctk.CTkImage(img, size = size) #als CTk-Image zurückgeben
 
     #Zurück-Button oben rechts
