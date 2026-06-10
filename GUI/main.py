@@ -375,7 +375,7 @@ class App(ctk.CTk):
         hostname = socket.gethostname()
         lokale_ip = socket.gethostbyname(hostname)
         
-        ip_info = ctk.CTKLabel(self,text=lokale_ip,font=self.schrift_groß)
+        ip_info = ctk.CTkLabel(self,text=lokale_ip,font=self.schrift_groß)
         ip_info.pack(expand = True)
 
     #Bild laden
