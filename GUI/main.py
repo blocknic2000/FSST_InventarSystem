@@ -1016,9 +1016,9 @@ class App(ctk.CTk):
     def load_img(self, name, big = False, ausgeliehen = False):
         size = (BILD_GROESSE_GROSS, BILD_GROESSE_GROSS) if big else (BILD_GROESSE_KLEIN, BILD_GROESSE_KLEIN) #Größe je nach Fenster
         try:
-            img = Image.open(name + ".png") #versuchen zu laden
+            img = Image.open(f"GUI/{name}.png") #versuchen zu laden
         except:
-            img = Image.open("Platzhalter.png")
+            img = Image.open("GUI/Platzhalter.png")
         
         #Wenn ausgeliehen, rotes Overlay
         if ausgeliehen:
