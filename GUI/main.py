@@ -1052,6 +1052,5 @@ class App(ctk.CTk):
         self.back_button = None #alter Button ist gelöscht
 
 #starten
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+app = App()
+app.mainloop()
