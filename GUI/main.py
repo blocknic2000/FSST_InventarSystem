@@ -32,7 +32,7 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Sortieranlage") #Fenster-Titel
-        self.after(0, lambda: self.state("zoomed")) #Vollbild
+        self.attributes('-fullscreen', True) #Vollbild
         self.artikel = ARTIKEL #alle Artikel
         self.gefiltert = self.artikel #aktuelle Filterung
         self.schrift = ctk.CTkFont("Arial", 24) #Standard-Schrift
