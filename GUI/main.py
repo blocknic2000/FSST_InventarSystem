@@ -370,6 +370,12 @@ class App(ctk.CTk):
         self.back() #Zurück-Button
         info = ctk.CTkLabel(self, text = "In Bearbeitung", font = self.schrift_groß)
         info.pack(expand = True)
+        import socket
+
+        hostname = socket.gethostname()
+        lokale_ip = socket.gethostbyname(hostname)
+        
+        ip_info = ctk.CTKLabel(self,text=lokale_ip,font=self.schrift_groß)
 
     #Bild laden
     def load_img(self, name, big = False):
