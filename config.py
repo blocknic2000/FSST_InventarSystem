@@ -1,6 +1,6 @@
 class Database:
     HOST = "localhost"
-    USER = "root"
-    PASSWORD = "password"
-    DATABASE = "INVSYS"
+    USER = "inventar"
+    PASSWORD = "inventarsys_kaiser_26"
+    DATABASE = "InventarSY"
     
