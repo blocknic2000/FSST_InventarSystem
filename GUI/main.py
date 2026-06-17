@@ -373,10 +373,11 @@ class App(ctk.CTk):
         import socket
 
         hostname = socket.gethostname()
-        lokale_ip = socket.gethostbyname(hostname)
+        ip_address = socket.getaddrinfo(hostname, None)[0][4][0]
         
-        ip_info = ctk.CTkLabel(self,text=lokale_ip,font=self.schrift_groß)
+        ip_info = ctk.CTkLabel(self,text=ip_address,font=self.schrift_groß)
         ip_info.pack(expand = True)
+        self.attributes('-fullscreen', False) #Vollbild
 
     #Bild laden
     def load_img(self, name, big = False):
